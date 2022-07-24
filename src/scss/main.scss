@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300;400;500;600&family=Stardos+Stencil:wght@700&display=swap');
+@import 'colors';
+@import 'variable';
+@import 'mixins';
+@import 'resets';
+body {
+  background-color: $primaryColorOne;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: $mainColorTwo;
+  font-family: $headingFont;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+p,
+button,
+label {
+  font-family: $normalTextFont;
+}
+p {
+  margin-bottom: 1.5rem;
+}
+label {
+  font-size: 0.8rem;
+}
+small {
+  font-size: 0.875rem;
+}
+
+a {
+  text-decoration: none;
+  color: $mainColorTwo;
+  font-family: $normalTextFont;
+  font-weight: 500;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+// for global responsive image
+img {
+  max-width: 100%;
+}
+// ////////////////////
+
+// buttons
+.btn-checkbox--container {
+  @media screen and (min-width: 40em) {
+    @include flexItems;
+    justify-content: center;
+  }
+}
+.btn--large {
+  padding: 0.6rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 50px;
+  cursor: pointer;
+  @include flexItems;
+  justify-content: center;
+  border: 2px solid $mainColor;
+  transition: $transition;
+  @media screen and (min-width: 40em) {
+    max-width: 15em;
+    margin: 0 1em;
+  }
+}
+.btn--small {
+  padding: 0.5em 0;
+  margin: 1em auto;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: capitalize;
+  transition: $transition;
+  border: 1px solid $mainColor;
+  font-weight: 600;
+}
+.btn-secondary {
+  background: transparent;
+  color: $mainColor;
+  background: white;
+  &:hover,
+  &:focus {
+    background: $mainColor;
+    color: white;
+  }
+}
+.btn-primary {
+  background: $mainColor;
+  color: white;
+  &:hover,
+  &:focus {
+    background: white;
+    color: $mainColor;
+  }
+}
+// ///////////////////////////////////////////////////////
+// Custom checkbox
+.checkbox--container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox--container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkmark {
+  border-radius: 2px;
+  background-color: $mainColor;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox--container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+// /////////////
+nav {
+  @include responsiveWidth;
+  @include flexItems;
+  justify-content: space-between;
+  padding: 1.2em;
+  height: 5rem;
+  border-bottom: 1px solid $mainColorTwo;
+  h1 {
+    font-size: 4.5rem;
+    color: $mainColor;
+  }
+  a {
+    color: $mainColor;
+  }
+}
+.signUp--tab {
+  background-color: $mainColor;
+  color: white;
+  padding: 0.5em 2em;
+  margin-left: 0.5em;
+  border-radius: 20px;
+  transition: $transition;
+  border: 1px solid $mainColor;
+  &:hover {
+    background: transparent;
+    color: $mainColor;
+    border: 1px solid $mainColor;
+  }
+}
+.welcome--page--section {
+  @include gridItems;
+  padding: 0 1em;
+  height: calc(100vh - 5rem);
+  text-align: center;
+  div {
+    @include responsiveWidth;
+  }
+  header h1 {
+    color: $mainColor;
+    font-size: 5rem;
+  }
+  p {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+}
+
+.form--section {
+  @include responsiveWidth;
+  @include gridItems;
+}
+form {
+  h1 {
+    color: $mainColor;
+  }
+  background: white;
+  border-radius: 10px;
+  padding: 2.5em;
+  max-width: 40em;
+  border: 0.3px solid $mainColor;
+  margin: 3em 1em;
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='password'],
+  select {
+    width: 100%;
+    height: 3em;
+    margin: 0.7em 0;
+    padding: 0 0.5em;
+    border-radius: 5px;
+    border: 1px solid $mainColor;
+    outline: 0;
+    transition: $transition;
+    &:focus {
+      border: 1px solid $mainColor;
+    }
+  }
+}
